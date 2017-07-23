@@ -1,0 +1,31 @@
+﻿@model List<Projeto.Entidades.Produto>
+
+@{
+    Layout = "~/Views/Shared/Layout.cshtml";
+}
+
+<h4>Loja de Produtos</h4>
+<a href="/Home/Index">Voltar</a> para a página inicial
+<br />
+<br />
+<div class="row">
+    @foreach (var p in Model)
+    {
+        <div class="col-md-3">
+            <div class="panel panel-primary text-center">
+                <div class="panel-body">
+                    <img src="/imagens/@p.Foto" width="160" height="140" />
+
+                    <h4>@p.Nome</h4>
+                    <strong>@p.Preco.ToString("c")</strong>
+                </div>
+                <div class="panel-footer">
+                    <a href="/Produto/AdicionarItem/@p.IdProduto"
+                       class="btn btn-success btn-block">
+                        Adicionar na Cesta
+                    </a>
+                </div>
+            </div>
+        </div>
+    }
+</div>
